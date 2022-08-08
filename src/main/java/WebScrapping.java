@@ -2,11 +2,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
 
 public class WebScrapping {
@@ -104,7 +100,6 @@ public class WebScrapping {
             }
             System.out.println(titels.size());
 
-            // למחוק  TODO
         System.out.println(mostNew);
         System.out.println(secondNew);
         System.out.println(tridNew);
