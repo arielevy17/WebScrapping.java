@@ -3,16 +3,15 @@ import java.awt.*;
 
 public class Result extends JFrame {
 
-    private final int X_Y_START = 0;
+    private final int X_START = 50;
     private final int WITH = 1400;
     private final int HIGTH = 1000;
-    private final int SPACE = 150;
-    private final int TEXT_F_HIGTH = 110;
+    private final int X_PAGE_TITLE = 200;
+    private final int WIDTH = 800;
+    private final int SPACE = 35;
     private final int TEXT_HIGTH = 15;
-    private final int DESTANCE_X_LEABEL = 300;
-    private final int LEABEL_FOUNT_SIZE = 25;
-    private final int TOP_WITH = 600;
-    private final int TOP_HIGTH = 80;
+    private final int LEABEL_FOUNT_SIZE = 30;
+    private final int WITH_LABEL_SIZE = WITH/5;
     private TextArea textAreaMost;
     private TextArea textAreaSecond;
     private TextArea textAreaTrid;
@@ -22,57 +21,40 @@ public class Result extends JFrame {
     public Result() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(WITH, HIGTH);
-        this.setBackground(Color.GRAY);
+        this.setBackground(Color.black);
         this.setLayout(null);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //  תיבת הטקסט עם תשובת החיפוש
-        Font JLabelFont= new Font("",Font.BOLD,LEABEL_FOUNT_SIZE);
-
-        JLabel top=new JLabel("YOUR FIVE MOST NEW ARTICLE RESULT : ");
-        top.setBounds((WITH/2)-DESTANCE_X_LEABEL,LEABEL_FOUNT_SIZE,TOP_WITH,TOP_HIGTH);
-        top.setFont(JLabelFont);
-        this.add(top);
-        top.requestFocus();
 
         Font JTextFont= new Font("",Font.BOLD,TEXT_HIGTH);
-
-        textAreaMost=new TextArea("No-Result Yet!");
-        textAreaMost.setBounds(X_Y_START,SPACE,WITH,TEXT_F_HIGTH);
+        textAreaMost=new TextArea("No Result Yet..");
+        textAreaMost.setBounds(X_START, SPACE ,WITH_LABEL_SIZE,HIGTH-SPACE);
         textAreaMost.setFont(JTextFont);
-        textAreaMost.setBackground(Color.pink);
+        textAreaMost.setBackground(Color.gray);
         this.add(textAreaMost);
         textAreaMost.requestFocus();
 
-        textAreaSecond=new TextArea("No-Result Yet!");
-        textAreaSecond.setBounds(X_Y_START,textAreaMost.getY()+SPACE,WITH,TEXT_F_HIGTH);
+        textAreaSecond=new TextArea("No Result Yet..");
+        textAreaSecond.setBounds(textAreaMost.getX() + WITH_LABEL_SIZE +SPACE , textAreaMost.getY(), WITH_LABEL_SIZE,HIGTH-SPACE);
         textAreaSecond.setFont(JTextFont);
-        textAreaSecond.setBackground(Color.pink);
+        textAreaSecond.setBackground(Color.gray);
         this.add(textAreaSecond);
         textAreaSecond.requestFocus();
 
-        textAreaTrid=new TextArea("No-Result Yet!");
-        textAreaTrid.setBounds(X_Y_START,textAreaSecond.getY()+SPACE,WITH,TEXT_F_HIGTH);
+        textAreaTrid=new TextArea("No Result Yet..");
+        textAreaTrid.setBounds(textAreaSecond.getX()+ WITH_LABEL_SIZE +SPACE , textAreaMost.getY() ,WITH_LABEL_SIZE ,HIGTH-SPACE);
         textAreaTrid.setFont(JTextFont);
-        textAreaTrid.setBackground(Color.pink);
+        textAreaTrid.setBackground(Color.gray);
         this.add(textAreaTrid);
         textAreaTrid.requestFocus();
 
-        textAreaFourth=new TextArea("No-Result Yet!");
-        textAreaFourth.setBounds(X_Y_START,textAreaTrid.getY()+SPACE,WITH,TEXT_F_HIGTH);
+        textAreaFourth=new TextArea("No Result Yet..");
+        textAreaFourth.setBounds(textAreaTrid.getX()+ WITH_LABEL_SIZE +SPACE, textAreaMost.getY() ,WITH_LABEL_SIZE,HIGTH-SPACE);
         textAreaFourth.setFont(JTextFont);
-        textAreaFourth.setBackground(Color.pink);
+        textAreaFourth.setBackground(Color.gray);
         this.add(textAreaFourth);
         textAreaFourth.requestFocus();
-
-        textAreaLast=new TextArea("No-Result Yet!");
-        textAreaLast.setBounds(X_Y_START,textAreaFourth.getY()+SPACE,WITH,TEXT_F_HIGTH);
-        textAreaLast.setFont(JTextFont);
-        textAreaLast.setBackground(Color.pink);
-        this.add(textAreaLast);
-        textAreaLast.requestFocus();
-
         this.setVisible(true);
 
     }

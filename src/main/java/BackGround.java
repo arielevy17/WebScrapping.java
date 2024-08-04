@@ -19,15 +19,6 @@ public class BackGround extends JPanel {     // יצירת מרחב ה GUI
     public BackGround(){
         this.setBounds(X_Y_START,X_Y_START,WITH,HIGTH);
 
-        //    הוראות לתיבת הטקסט
-        JTextField instruction = new JTextField("wirte the word you wont too serch: ");
-        instruction.setForeground(Color.green);
-        Font fontInstruction =  new Font("",Font.BOLD,FOUNS_SIZE);
-        instruction.setBounds(((WITH/2)-WITH_TEXT_F-WITH_BUTTON),Y_TEXT_F-WITH_BUTTON,WITH_TEXT_F,HIGTH_TEXT_F);
-        instruction.setFont(fontInstruction);
-        this.add(instruction);
-        instruction.requestFocus();
-        instruction.setVisible(true);
 
         background = new ImageIcon("IMG_20220804_195733.png");
         repaint();

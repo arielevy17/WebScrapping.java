@@ -1,73 +1,73 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Scanner;
 
-public class HomeFrame extends JFrame {     // יצירת מרחב ה GUI
+public class HomeFrame extends JFrame {
 
-    private final int X_Y_START=0;
-        private final int WITH=800;
-    private final int TEXT_HIGTH = 15;
-        private final int HIGTH=600;
-        private final int  WITH_TEXT_F=300;
-        private final int HIGTH_TEXT_F=50;
-        private final int WITH_BUTTON=100;
-        private final int HIGTH_BUTTON=50;
-        private final int Y_TEXT_F=300;
-    private final int FOUNS_SIZE=30;
-
-
-
+    private final int X_Y_START = 0;
+    private final int WIDTH = 800;
+    private final int HEIGHT = 600;
+    private final int TEXT_HEIGHT = 15;
+    private final int WIDTH_TEXT_F = 300;
+    private final int HEIGHT_TEXT_F = 50;
+    private final int WIDTH_BUTTON = 100;
+    private final int HEIGHT_BUTTON = 50;
+    private final int Y_TEXT_F = 300;
+    private final int FONT_SIZE = 30;
+    private final int X_PAGE_TITLE = 200;
+    private final int Y_PAGE_TITLE = 20;
+    private final int PAGE_TITLE_HEIGHT = 40;
     private JTextField textField;
 
-    public HomeFrame(){
-        this.setSize(WITH,HIGTH);
-        this.setLayout(null);
+    public HomeFrame() {
+        this.setSize(WIDTH, HEIGHT);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
 
-            //  מסך הבית
-        JPanel panel =new JPanel();
-        panel.setBounds(X_Y_START,X_Y_START,WITH,HIGTH);
-        panel.setBackground(Color.MAGENTA);
-        add(panel);
-        panel.setVisible(true);
+        // יצירת לוח עם תמונת רקע
+        JPanel backgroundPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // טעינת תמונת הרקע
+                ImageIcon icon = new ImageIcon("C:\\Users\\ariel\\Documents\\WebScrapping.java\\src\\main\\java\\G.N.png.jpg");
+                Image image = icon.getImage();
+                // ציור התמונה על הלוח
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        backgroundPanel.setLayout(null); // הגדרת פריסה ידנית
+        setContentPane(backgroundPanel); // הגדרת ה-backgroundPanel כלוח התוכן של החלון
 
-
-             //  תיבת הטקסט להזנת חיפוש מילה
-         textField = new JTextField();
-        textField.setBounds(((WITH/2)-(WITH_TEXT_F/2)),Y_TEXT_F,WITH_TEXT_F,HIGTH_TEXT_F);
-        Font JTextFont= new Font("",Font.BOLD,TEXT_HIGTH);
+        // תיבת הטקסט להזנת חיפוש מילה
+        textField = new JTextField();
+        textField.setBounds(((WIDTH / 2) - (WIDTH_TEXT_F / 2)), Y_TEXT_F, WIDTH_TEXT_F, HEIGHT_TEXT_F);
+        Font JTextFont = new Font("", Font.BOLD, TEXT_HEIGHT);
         textField.setFont(JTextFont);
-        textField.setText("DELITE AND WIRT YOUR WORD HIR..");
-        textField.setBackground(Color.CYAN);
-        add(textField);
-        textField.setVisible(true);
-        textField.requestFocus();
+        textField.setText("Write here the word you want to search..");
+        textField.setBackground(Color.LIGHT_GRAY);
+        backgroundPanel.add(textField);
 
+        // עיצוב הכפתור
+        JButton searchButton = new JButton("search");
+        searchButton.setBounds((WIDTH / 2) - HEIGHT_BUTTON, Y_TEXT_F + WIDTH_BUTTON, WIDTH_BUTTON, HEIGHT_BUTTON);
+        searchButton.setBackground(Color.LIGHT_GRAY);
 
-               // עיצוב הכפתור
-        JButton scherchButton = new JButton("serch");
-        scherchButton .setBounds((WITH/2)-HIGTH_BUTTON,Y_TEXT_F+WITH_BUTTON,WITH_BUTTON,HIGTH_BUTTON);
-        scherchButton.setBackground(Color.YELLOW);
-
-        scherchButton.addActionListener((event -> {
-
-            WebScrapping w=new WebScrapping(textField.getText());
+        searchButton.addActionListener((event -> {
+            WebScrapping w = new WebScrapping(textField.getText());
         }));
 
-        add(scherchButton);
-        scherchButton.setVisible(true);
-        scherchButton.requestFocus();
+        backgroundPanel.add(searchButton);
 
-                  //    הוראות לתיבת הטקסט
-        JLabel instruction = new JLabel("wirte the word you wont too serch: ");
-        Font fontInstruction =  new Font("",Font.BOLD,FOUNS_SIZE);
-        instruction.setBounds(((WITH/2)-WITH_TEXT_F-WITH_BUTTON),Y_TEXT_F-WITH_BUTTON,WITH_TEXT_F,HIGTH_TEXT_F);
-        instruction.setHorizontalTextPosition(SwingConstants.CENTER);
+        // הוראות לתיבת הטקסט
+        JLabel instruction = new JLabel("Welcome to the G.N search engine ");
+        Font fontInstruction = new Font("", Font.BOLD, FONT_SIZE);
         instruction.setFont(fontInstruction);
-        panel.add(instruction);
-        instruction.setVisible(true);
+        instruction.setForeground(Color.WHITE);
+        instruction.setBounds(X_PAGE_TITLE, Y_PAGE_TITLE, WIDTH, PAGE_TITLE_HEIGHT);
+        instruction.setFont(fontInstruction);
+        backgroundPanel.add(instruction);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true); // הצגת החלון
     }
 
     public String getWord() {
@@ -75,8 +75,7 @@ public class HomeFrame extends JFrame {     // יצירת מרחב ה GUI
     }
 
     public static void main(String[] args) {
-        HomeFrame test=new HomeFrame();
+        HomeFrame test = new HomeFrame();
         test.setVisible(true);
-        System.out.println("finish");
     }
 }
