@@ -1,4 +1,5 @@
 Project Name: Search Engine
+
 General description: The system will scan news websites and look for an entry entered by the user in their various articles. All matching articles will be displayed for the user.
 Detail: When running the program, a window (GUI) will open in which a text box and a button will appear. 
 The user will be able to enter a word/phrase into the text box, and after clicking the button, Web Scrapers will be run on four news sites.
