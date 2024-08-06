@@ -12,4 +12,4 @@ and for each article in which there is a match to the search value, the informat
 The search for the articles will be carried out in an infinite loop. 
 That is, immediately after the scraper has finished scanning the site it is working on, it will perform another scan to check if additional articles with the search value have been created in the meantime. 
 The maximum number of matches to be displayed is 4. If four articles are already displayed, and another article is found that meets the search value, 
-the oldest article should be pushed out, and the new article found should be displayed.
+the oldest article should be pushed out , and the new article found should be displayed.
